@@ -80,10 +80,22 @@ func conversion() {
 	printMinimal(text, strtorune)
 }
 
+func alias() {
+	Banner("Type Declaration / Alias")
+	type huruf string
+	type angka int
+
+	var s huruf = "string"
+	var i angka = 1024
+
+	fmt.Println(s, i)
+}
+
 func main() {
 	fmt.Println("Let's GO!")
 
 	variable()
 	constant()
 	conversion()
+	alias()
 }
