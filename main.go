@@ -134,6 +134,33 @@ func operator() {
 
 // Operator end
 
+func slowRemoveIndex(array []string, index int) []string {
+	a, b := array[:index], array[index+1:]
+	return append(a, b...)
+}
+
+func tryArrayAndSlice() {
+	Banner("Array & Slice")
+
+	// https://randomwordgenerator.com/
+	a := [4]string{"texture", "transmission", "sow", "mosaic"}
+	b := a[0:3]
+	bb := append(b, "meadow")
+	bb[len(bb)-1] = "last"
+	c := a[3:]
+	d := append(c, "connection")
+	d[0] = "float"
+
+	fmt.Printf("a %v, LEN: %d, CAP: %d\n", a, len(a), cap(a))
+	fmt.Printf("b %v, LEN: %d, CAP: %d\n", b, len(b), cap(b))
+	fmt.Printf("bb %v, LEN: %d, CAP: %d\n", bb, len(bb), cap(bb))
+	fmt.Printf("c %v, LEN: %d, CAP: %d\n", c, len(c), cap(c))
+	fmt.Printf("d %v, LEN: %d, CAP: %d\n", d, len(d), cap(d))
+
+	ss := slowRemoveIndex(bb, 2)
+	fmt.Println(ss, len(ss), cap(ss))
+}
+
 func main() {
 	fmt.Println("Let's GO!")
 
@@ -142,4 +169,5 @@ func main() {
 	conversion()
 	alias()
 	operator()
+	tryArrayAndSlice()
 }
