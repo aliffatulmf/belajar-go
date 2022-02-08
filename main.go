@@ -45,9 +45,45 @@ func variable() {
 	fmt.Println("username", username)
 }
 
+func constant() {
+	Banner("constanta")
+	const id int8 = 1
+	const firstName string = "Alif"
+	const _ string = "Fatul" // unused
+
+	fmt.Println(id, firstName)
+}
+
+func conversion() {
+	Banner("conversion")
+	printMinimal := func(s ...interface{}) {
+		fmt.Printf("Before %v(%T), After %v(%T)\n", s[0], s[0], s[1], s[1])
+	}
+
+	c := func(s string) []rune {
+		var result []rune
+		for _, v := range s {
+			result = append(result, v)
+		}
+		return result
+	}
+
+	var i8 int8 = 8
+	var i8tou8 uint8 = uint8(i8)
+
+	var i8tof32 float32 = float32(i8)
+	var text string = "Golang"
+	var strtorune []rune = c(text)
+
+	printMinimal(i8, i8tou8)
+	printMinimal(i8, i8tof32)
+	printMinimal(text, strtorune)
+}
+
 func main() {
 	fmt.Println("Let's GO!")
 
 	variable()
-
+	constant()
+	conversion()
 }
