@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -91,6 +92,48 @@ func alias() {
 	fmt.Println(s, i)
 }
 
+// Operator start
+type Operator struct {
+	c float64
+	b [3]int
+}
+
+type IOperator interface {
+	Kubus()
+	Balok()
+}
+
+func (o *Operator) Kubus() {
+	fmt.Println("Kubus:", math.Pow(o.c, 3))
+}
+func (o *Operator) Balok() {
+	fmt.Println("Balok:", o.b[0]*o.b[1]*o.b[2])
+}
+
+func operator() {
+	Banner("Math")
+	x := 8
+	y := 4
+	z := 4
+
+	op := Operator{
+		c: 8,
+		b: [3]int{x, y, z},
+	}
+
+	op.Balok()
+	op.Kubus()
+
+	Banner("Operator")
+	fmt.Println("A == A", "A" == "A")                          // equal
+	fmt.Println("A != A", "A" != "A")                          // no equal
+	fmt.Println("4 < 5", 4 < 5)                                // lower than
+	fmt.Println("4 < 6(true) && 7 > 8(false)", 4 < 6 && 7 > 8) // and
+	fmt.Println("4 < 6(true) || 7 > 8(false)", 4 < 6 || 7 > 8) // or
+}
+
+// Operator end
+
 func main() {
 	fmt.Println("Let's GO!")
 
@@ -98,4 +141,5 @@ func main() {
 	constant()
 	conversion()
 	alias()
+	operator()
 }
