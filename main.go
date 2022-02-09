@@ -242,6 +242,65 @@ func ifexp() {
 	}
 }
 
+func switchlib1(id, name string) {
+	switch id {
+	case "planet":
+		fmt.Println(name, "is planet")
+	case "moon":
+		fmt.Println(name, "is moon")
+	case "loop":
+		{
+			for x := 0; x < 10; x++ {
+				fmt.Println("Write planet", name)
+			}
+		}
+	case "loopbreak":
+		{
+			for x := 0; x < 10; x++ {
+				if x == 5 {
+					break
+				}
+				fmt.Println("Write planet", name)
+			}
+		}
+	default:
+		fmt.Println("none")
+	}
+
+}
+
+func switchlib2(name string) {
+	switch {
+	case name == "proxima centauri":
+		fmt.Println("Star")
+	case name == "europa":
+		fmt.Println("Jupyters moon")
+	}
+}
+
+func switchlib3(n uint) {
+	switch sum := n + 80; sum > 100 {
+	case true:
+		fmt.Println("sum > 100")
+	case false:
+		fmt.Println("sum < 100")
+	}
+}
+
+func switchexp() {
+	Banner("Switch Expression")
+
+	switchlib1("planet", "earth")
+	switchlib1("moon", "io")
+	switchlib1("loop", "saturn")
+	switchlib1("loopbreak", "loop")
+
+	switchlib2("europa")
+	switchlib2("io")
+
+	switchlib3(200)
+}
+
 func main() {
 	fmt.Println("Let's GO!")
 
@@ -253,4 +312,5 @@ func main() {
 	tryArrayAndSlice()
 	maps()
 	ifexp()
+	switchexp()
 }
