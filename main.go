@@ -196,6 +196,50 @@ func maps() {
 	for _, v := range m2 {
 		fmt.Printf("%v ", v)
 	}
+	fmt.Println() // new line
+}
+
+func ifexp() {
+	Banner("If Expression")
+
+	earth := "planet"
+
+	if earth != "planet" {
+		fmt.Println("Earth is moon")
+	} else {
+		fmt.Println("Earth is planet")
+	}
+
+	star := "red"
+
+	if star == "hot" {
+		fmt.Println("Star is hot")
+	} else if star == "cold" {
+		fmt.Println("Star is cold")
+	} else {
+		fmt.Println("Not star")
+	}
+
+	red := "mars"
+	mars := "planet"
+
+	if "mars" == red {
+		if mars == "planet" {
+			fmt.Println("Mars is planet")
+		} else {
+			fmt.Println("Mars not a planet")
+		}
+	} else {
+		fmt.Println("Mars is not red")
+	}
+
+	word := "SunIsBiggerThanEarth" // SunIsBigger 11
+
+	if 11 > len(word) {
+		fmt.Println("Not true")
+	} else if len(word) > 11 {
+		fmt.Println(word[:11])
+	}
 }
 
 func main() {
@@ -208,4 +252,5 @@ func main() {
 	operator()
 	tryArrayAndSlice()
 	maps()
+	ifexp()
 }
