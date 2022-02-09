@@ -170,6 +170,34 @@ func tryArrayAndSlice() {
 	fmt.Println(ss, len(ss), cap(ss))
 }
 
+func maps() {
+	Banner("Map")
+	m := map[string]int{
+		"a": 1,
+		"b": 2,
+	}
+
+	m2 := make(map[int]string)
+	m2[1] = "a"
+	m2[2] = "b"
+	m2[3] = "c"
+	m2[4] = "d"
+	m2[5] = "e"
+
+	fmt.Println(m)
+	for _, v := range m {
+		fmt.Printf("%v ", v)
+	}
+	fmt.Println() // new line
+	fmt.Println(m2)
+	delete(m2, 1)
+	fmt.Println(m2)
+
+	for _, v := range m2 {
+		fmt.Printf("%v ", v)
+	}
+}
+
 func main() {
 	fmt.Println("Let's GO!")
 
@@ -179,4 +207,5 @@ func main() {
 	alias()
 	operator()
 	tryArrayAndSlice()
+	maps()
 }
