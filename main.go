@@ -130,6 +130,15 @@ func operator() {
 	fmt.Println("4 < 5", 4 < 5)                                // lower than
 	fmt.Println("4 < 6(true) && 7 > 8(false)", 4 < 6 && 7 > 8) // and
 	fmt.Println("4 < 6(true) || 7 > 8(false)", 4 < 6 || 7 > 8) // or
+
+	a := 0
+	a += 8
+	a *= 2
+	a /= 4
+	a %= 2
+	a -= -2
+
+	fmt.Println(a)
 }
 
 // Operator end

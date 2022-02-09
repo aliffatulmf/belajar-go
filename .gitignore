@@ -1,5 +1,6 @@
 # VSCode workspace settings
 .vscode
+.tmp
 
 # Binaries for programs and plugins
 *.exe
