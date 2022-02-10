@@ -391,6 +391,23 @@ func recursiveFunction(a uint) uint {
 	return a * recursiveFunction(a-1)
 }
 
+type AnonymousHelper func(string)
+
+func anonymousFunctionHelper(s string, f AnonymousHelper) {
+	f(s)
+}
+func anonymousFunction() {
+	Banner("Anonymous Function")
+	a := func(s string) {
+		fmt.Println("The", s)
+	}
+
+	anonymousFunctionHelper("Sun", a)
+	anonymousFunctionHelper("Moon", func(s string) {
+		fmt.Println(s, "light")
+	})
+}
+
 func functionExec() {
 	// function
 	function()
@@ -425,6 +442,9 @@ func functionExec() {
 	Banner("Recursive Function")
 	rf := recursiveFunction(5)
 	fmt.Println("5!:", rf)
+
+	// anonymous function
+	anonymousFunction()
 }
 
 func main() {
