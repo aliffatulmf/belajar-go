@@ -1,22 +1,13 @@
 package main
 
 import (
+	blog "belajar-go/log"
 	"fmt"
 	"math"
-	"strings"
 )
 
-func Banner(name string) {
-	var buff strings.Builder
-	for i := 0; i <= 10; i++ {
-		buff.WriteString("=")
-	}
-
-	fmt.Println(buff.String(), strings.ToTitle(name), buff.String())
-}
-
 func variable() {
-	Banner("variable")
+	blog.Banner("variable")
 	var number int8
 	var text string
 	var char byte
@@ -47,7 +38,7 @@ func variable() {
 }
 
 func constant() {
-	Banner("constanta")
+	blog.Banner("constanta")
 	const id int8 = 1
 	const firstName string = "Alif"
 	const _ string = "Fatul" // unused
@@ -56,7 +47,7 @@ func constant() {
 }
 
 func conversion() {
-	Banner("conversion")
+	blog.Banner("conversion")
 	printMinimal := func(s ...interface{}) {
 		fmt.Printf("Before %v(%T), After %v(%T)\n", s[0], s[0], s[1], s[1])
 	}
@@ -82,7 +73,7 @@ func conversion() {
 }
 
 func alias() {
-	Banner("Type Declaration / Alias")
+	blog.Banner("Type Declaration / Alias")
 	type huruf string
 	type angka int
 
@@ -111,7 +102,7 @@ func (o *Operator) Balok() {
 }
 
 func operator() {
-	Banner("Math")
+	blog.Banner("Math")
 	x := 8
 	y := 4
 	z := 4
@@ -124,7 +115,7 @@ func operator() {
 	op.Balok()
 	op.Kubus()
 
-	Banner("Operator")
+	blog.Banner("Operator")
 	fmt.Println("A == A", "A" == "A")                          // equal
 	fmt.Println("A != A", "A" != "A")                          // no equal
 	fmt.Println("4 < 5", 4 < 5)                                // lower than
@@ -149,7 +140,7 @@ func slowRemoveIndex(array []string, index int) []string {
 }
 
 func tryArrayAndSlice() {
-	Banner("Array & Slice")
+	blog.Banner("Array & Slice")
 
 	// https://randomwordgenerator.com/
 	a := [4]string{"texture", "transmission", "sow", "mosaic"}
@@ -171,7 +162,7 @@ func tryArrayAndSlice() {
 }
 
 func maps() {
-	Banner("Map")
+	blog.Banner("Map")
 	m := map[string]int{
 		"a": 1,
 		"b": 2,
@@ -200,7 +191,7 @@ func maps() {
 }
 
 func ifexp() {
-	Banner("If Expression")
+	blog.Banner("If Expression")
 
 	earth := "planet"
 
@@ -288,7 +279,7 @@ func switchlib3(n uint) {
 }
 
 func switchexp() {
-	Banner("Switch Expression")
+	blog.Banner("Switch Expression")
 
 	switchlib1("planet", "earth")
 	switchlib1("moon", "io")
@@ -302,7 +293,7 @@ func switchexp() {
 }
 
 func breakcontinue() {
-	Banner("Break & Continue")
+	blog.Banner("Break & Continue")
 
 	for i := 0; i < 15; i++ {
 		if i%2 == 0 {
@@ -318,27 +309,27 @@ func breakcontinue() {
 }
 
 func function() {
-	Banner("Function")
+	blog.Banner("Function")
 	fmt.Println("This is function in golang")
 }
 
 func functionParameter(a string, b int, c float64) {
-	Banner("Function Parameter")
+	blog.Banner("Function Parameter")
 	fmt.Println(a, b, c)
 }
 
 func functionReturnValue(a, b int) int {
-	Banner("Function Return Value")
+	blog.Banner("Function Return Value")
 	return a * b
 }
 
 func functionReturnMultipleValue(a, b int) (int, int) {
-	Banner("Function Return Multiple Value 1")
+	blog.Banner("Function Return Multiple Value 1")
 	return a + b, b - a
 }
 
 func functionVariadic(a ...string) string {
-	Banner("Function Variadic")
+	blog.Banner("Function Variadic")
 	var res string
 	for _, v := range a {
 		res += fmt.Sprintf("%s ", v)
@@ -348,14 +339,14 @@ func functionVariadic(a ...string) string {
 }
 
 func functionValue(name string) string {
-	Banner("Function Value")
+	blog.Banner("Function Value")
 	return fmt.Sprintf("Earth is %s", name)
 }
 
 type Exec func(uint) uint
 
 func functionAsParameter(number uint, exec Exec) string {
-	Banner("Function as Parameter")
+	blog.Banner("Function as Parameter")
 	n := exec(number)
 
 	if n == 0 {
@@ -397,7 +388,7 @@ func anonymousFunctionHelper(s string, f AnonymousHelper) {
 	f(s)
 }
 func anonymousFunction() {
-	Banner("Anonymous Function")
+	blog.Banner("Anonymous Function")
 	a := func(s string) {
 		fmt.Println("The", s)
 	}
@@ -409,7 +400,7 @@ func anonymousFunction() {
 }
 
 func closure() {
-	Banner("Closure")
+	blog.Banner("Closure")
 	n := 0
 
 	increment := func() {
@@ -435,7 +426,7 @@ func error(b bool) {
 }
 
 func deferPanicRecover() {
-	Banner("Defer, Panic, Recover")
+	blog.Banner("Defer, Panic, Recover")
 
 	defer exception()
 	fmt.Println("Step 1")
@@ -476,7 +467,7 @@ func functionExec() {
 	fmt.Println(fp)
 
 	// recursive function
-	Banner("Recursive Function")
+	blog.Banner("Recursive Function")
 	rf := recursiveFunction(5)
 	fmt.Println("5!:", rf)
 
