@@ -301,6 +301,22 @@ func switchexp() {
 	switchlib3(200)
 }
 
+func breakcontinue() {
+	Banner("Break & Continue")
+
+	for i := 0; i < 15; i++ {
+		if i%2 == 0 {
+			continue
+		}
+
+		if i == 13 {
+			break
+		}
+		fmt.Print(i, " ")
+	}
+	fmt.Println()
+}
+
 func main() {
 	fmt.Println("Let's GO!")
 
@@ -313,4 +329,5 @@ func main() {
 	maps()
 	ifexp()
 	switchexp()
+	breakcontinue()
 }
