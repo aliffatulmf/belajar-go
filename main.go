@@ -1,6 +1,7 @@
 package main
 
 import (
+	"belajar-go/helper"
 	blog "belajar-go/log"
 	"fmt"
 	"math"
@@ -491,4 +492,7 @@ func main() {
 	functionExec()
 	closure()
 	deferPanicRecover()
+	helper.CanImport()
+	helper.GoStruct()
+	helper.StructScope()
 }
