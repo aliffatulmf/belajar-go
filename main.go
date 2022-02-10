@@ -423,6 +423,28 @@ func closure() {
 	fmt.Println(n)
 }
 
+func exception() {
+	message := recover()
+	fmt.Println("Exit:", message)
+}
+
+func error(b bool) {
+	if b {
+		panic("throw panic")
+	}
+}
+
+func deferPanicRecover() {
+	Banner("Defer, Panic, Recover")
+
+	defer exception()
+	fmt.Println("Step 1")
+
+	error(true)
+
+	fmt.Println("Step 2")
+}
+
 func functionExec() {
 	// function
 	function()
@@ -477,4 +499,5 @@ func main() {
 	breakcontinue()
 	functionExec()
 	closure()
+	deferPanicRecover()
 }
