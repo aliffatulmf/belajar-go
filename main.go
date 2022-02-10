@@ -495,4 +495,5 @@ func main() {
 	helper.CanImport()
 	helper.GoStruct()
 	helper.StructScope()
+	helper.GoStructFunction()
 }
