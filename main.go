@@ -408,6 +408,21 @@ func anonymousFunction() {
 	})
 }
 
+func closure() {
+	Banner("Closure")
+	n := 0
+
+	increment := func() {
+		n := 0
+		n++
+		fmt.Println(n)
+	}
+	increment()
+	fmt.Println(n)
+	increment()
+	fmt.Println(n)
+}
+
 func functionExec() {
 	// function
 	function()
@@ -461,4 +476,5 @@ func main() {
 	switchexp()
 	breakcontinue()
 	functionExec()
+	closure()
 }
