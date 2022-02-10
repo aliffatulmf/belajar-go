@@ -317,6 +317,116 @@ func breakcontinue() {
 	fmt.Println()
 }
 
+func function() {
+	Banner("Function")
+	fmt.Println("This is function in golang")
+}
+
+func functionParameter(a string, b int, c float64) {
+	Banner("Function Parameter")
+	fmt.Println(a, b, c)
+}
+
+func functionReturnValue(a, b int) int {
+	Banner("Function Return Value")
+	return a * b
+}
+
+func functionReturnMultipleValue(a, b int) (int, int) {
+	Banner("Function Return Multiple Value 1")
+	return a + b, b - a
+}
+
+func functionVariadic(a ...string) string {
+	Banner("Function Variadic")
+	var res string
+	for _, v := range a {
+		res += fmt.Sprintf("%s ", v)
+	}
+
+	return res
+}
+
+func functionValue(name string) string {
+	Banner("Function Value")
+	return fmt.Sprintf("Earth is %s", name)
+}
+
+type Exec func(uint) uint
+
+func functionAsParameter(number uint, exec Exec) string {
+	Banner("Function as Parameter")
+	n := exec(number)
+
+	if n == 0 {
+		return fmt.Sprintf("%d prime", number)
+	} else {
+		return fmt.Sprintf("%d not prime", number)
+	}
+}
+
+func exec(i uint) uint {
+	var res uint
+
+	switch {
+	case i == 1:
+		res = 1
+	case i%2 > 0:
+		res = i % 2
+	case i%3 > 0:
+		res = i % 3
+	default:
+		res = 1
+	}
+
+	return res
+}
+
+// factorial
+func recursiveFunction(a uint) uint {
+	if a == 1 {
+		return 1
+	}
+
+	return a * recursiveFunction(a-1)
+}
+
+func functionExec() {
+	// function
+	function()
+
+	// parameter
+	functionParameter("Alif", 21, 8.0)
+
+	// return single value
+	v := functionReturnValue(8, 4)
+	fmt.Println(v)
+
+	// ruturn multiple value
+	m1, m2 := functionReturnMultipleValue(8, 10)
+	fmt.Println(m1, m2)
+
+	// variadic
+	ss := []string{"hello", "my", "name", "is", "al"}
+	r := functionVariadic("hello", "my", "name", "is", "alif")
+	fmt.Println(r)
+	r2 := functionVariadic(ss...)
+	fmt.Println(r2)
+
+	// function value
+	ff := functionValue
+	fmt.Println(ff("the third planet from the sun"))
+
+	// function as parameter
+	fp := functionAsParameter(9, exec)
+	fmt.Println(fp)
+
+	// recursive function
+	Banner("Recursive Function")
+	rf := recursiveFunction(5)
+	fmt.Println("5!:", rf)
+}
+
 func main() {
 	fmt.Println("Let's GO!")
 
@@ -330,4 +440,5 @@ func main() {
 	ifexp()
 	switchexp()
 	breakcontinue()
+	functionExec()
 }
