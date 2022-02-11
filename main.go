@@ -498,4 +498,5 @@ func main() {
 	helper.GoStructFunction()
 	helper.GoInterface()
 	helper.EmtpyInterface()
+	helper.GoNil()
 }
