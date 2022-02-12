@@ -499,4 +499,5 @@ func main() {
 	helper.GoInterface()
 	helper.EmtpyInterface()
 	helper.GoNil()
+	helper.ErrorInterface()
 }
