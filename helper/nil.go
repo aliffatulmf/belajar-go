@@ -17,6 +17,35 @@ func generateNewMap(v ...string) map[int]string {
 	return res
 }
 
+type Message struct {
+	message string
+}
+
+type MessageInterface interface {
+	Get() string
+	Print()
+}
+
+func New(message string) MessageInterface {
+	return Message{message}
+}
+
+func (m Message) Get() string {
+	return m.message
+}
+
+func (m Message) Print() {
+	fmt.Println(m.message)
+}
+
+func Cetak(s string) (string, MessageInterface) {
+	if s == "" {
+		return "", New("ERROR: Cetak Kosong")
+	}
+
+	return s, nil
+}
+
 func GoNil() {
 	blog.Banner("Nil")
 
@@ -31,4 +60,12 @@ func GoNil() {
 
 	gtype := reflect.TypeOf(g)
 	fmt.Println("Return type:", gtype)
+
+	msg, err := Cetak("CETAK")
+
+	if err != nil {
+		err.Print()
+	} else {
+		fmt.Println(msg)
+	}
 }
