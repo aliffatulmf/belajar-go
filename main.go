@@ -500,4 +500,5 @@ func main() {
 	helper.EmtpyInterface()
 	helper.GoNil()
 	helper.ErrorInterface()
+	helper.TypeAssertions()
 }
