@@ -501,4 +501,5 @@ func main() {
 	helper.GoNil()
 	helper.ErrorInterface()
 	helper.TypeAssertions()
+	helper.Pointer()
 }
