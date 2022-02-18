@@ -502,4 +502,5 @@ func main() {
 	helper.ErrorInterface()
 	helper.TypeAssertions()
 	helper.Pointer()
+	helper.GoModules()
 }
